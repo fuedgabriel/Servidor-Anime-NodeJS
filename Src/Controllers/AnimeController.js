@@ -21,7 +21,8 @@ module.exports = {
     return res.json(anime);
   },
   async search(req, res) {
-    const anime = await Anime.paginate({}, { page, limit: 15 });
+    const { name = B } = req.query;
+    const anime = await Anime.find({ Title: /^/ });
     return res.json(anime);
   },
   async lancamento(req, res) {

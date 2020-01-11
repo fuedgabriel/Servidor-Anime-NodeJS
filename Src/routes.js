@@ -11,10 +11,12 @@ const Support = require('./Controllers/Support');
 
 //anime-info
 routes.get('/anime/:id', anime.selectbyid);
-routes.post('/anime/category', anime.category);
-routes.post('/anime', anime.insert);
+routes.get('/animeSearch', anime.search);
 routes.get('/anime', anime.select);
 routes.post('/anime/release/', anime.lancamento);
+routes.post('/anime/category', anime.category);
+routes.post('/anime', anime.insert);
+
 
 //video
 routes.post('/video', video.insert);
