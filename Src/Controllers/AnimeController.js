@@ -22,7 +22,8 @@ module.exports = {
   },
   async search(req, res) {
     const { name = B } = req.query;
-    const anime = await Anime.find({ Title: /^/ });
+    new RegExp(`^${name}`)
+    const anime = await Anime.find({ Title: RegExp(`^${name}`) });
     return res.json(anime);
   },
   async lancamento(req, res) {
