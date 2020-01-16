@@ -22,7 +22,6 @@ module.exports = {
   },
   async search(req, res) {
     const { name = B } = req.query;
-    new RegExp(`^${name}`)
     const anime = await Anime.find({ Title: RegExp(`^${name}`) });
     return res.json(anime);
   },
@@ -54,8 +53,9 @@ module.exports = {
     return res.json(saida);
   },
   async category(req, res) {
-    const Videos = await Video.find({ "sended": "2019-12-26T11:26:33.560Z" });
-    return res.json(Videos);
+    const { cat = B } = req.query;
+    const Animes = await Anime.find({ Category: RegExp(/[Ação-Carro]/gi) });
+    return res.json(Animes);
   },
 
 };
