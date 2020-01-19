@@ -22,7 +22,7 @@ module.exports = {
   },
   async search(req, res) {
     const { name = B } = req.query;
-    const anime = await Anime.find({ Title: RegExp(`^${name}`) });
+    const anime = await Anime.find({ Title: RegExp(`^${name}`, 'gi') });
     return res.json(anime);
   },
   async lancamento(req, res) {
@@ -53,9 +53,9 @@ module.exports = {
     return res.json(saida);
   },
   async category(req, res) {
-    const { cat = B } = req.query;
-    const Animes = await Anime.find({ Category: RegExp(/[Ação-Carro]/gi) });
-    return res.json(Animes);
+    var json = req.body;
+    json = json.Category;
+    const send = await Anime.find({ Category: RegExp(json[0], 'gi') });
+    return res.json(send);
   },
-
 };

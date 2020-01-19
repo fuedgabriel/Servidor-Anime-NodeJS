@@ -3,7 +3,7 @@ const routes = express.Router();
 
 //Controllers
 const anime = require('./Controllers/AnimeController');
-const video = require('./Controllers/Videocontroller');
+const video = require('./Controllers/VideoController');
 const Category = require('./Controllers/CategoryController');
 const Seasons = require('./Controllers/SeasonsController');
 const cat = require('./Controllers/UsersController');
@@ -13,7 +13,7 @@ const Support = require('./Controllers/Support');
 routes.get('/anime/:id', anime.selectbyid);
 routes.get('/animeSearch', anime.search);
 routes.get('/anime', anime.select);
-routes.get('/category', anime.category);
+routes.post('/anime/category/', anime.category);
 routes.post('/anime/release/', anime.lancamento);
 
 routes.post('/anime', anime.insert);
