@@ -55,7 +55,8 @@ module.exports = {
   async category(req, res) {
     var json = req.body;
     json = json.Category;
-    const send = await Anime.find({ Category: RegExp(json[0], 'gi') });
+    console.log(json)
+    const send = await Anime.find({ Category: RegExp(json, 'gi') });
     return res.json(send);
   },
 };

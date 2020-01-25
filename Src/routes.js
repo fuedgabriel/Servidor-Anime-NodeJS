@@ -15,7 +15,6 @@ routes.get('/animeSearch', anime.search);
 routes.get('/anime', anime.select);
 routes.post('/anime/category/', anime.category);
 routes.post('/anime/release/', anime.lancamento);
-
 routes.post('/anime', anime.insert);
 
 
