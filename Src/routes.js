@@ -3,11 +3,18 @@ const routes = express.Router();
 
 //Controllers
 const anime = require('./Controllers/AnimeController');
+const animeErro = require('./Controllers/AnimeErroController');
 const video = require('./Controllers/VideoController');
 const Category = require('./Controllers/CategoryController');
 const Seasons = require('./Controllers/SeasonsController');
 const cat = require('./Controllers/UsersController');
 const Support = require('./Controllers/Support');
+
+//anime-info-Erro
+routes.get('/animeErro/:id', animeErro.selectbyid);
+routes.get('/animeErroSearch', animeErro.search);
+routes.get('/animeErro', animeErro.select);
+routes.post('/animeErro', animeErro.insert);
 
 //anime-info
 routes.get('/anime/:id', anime.selectbyid);

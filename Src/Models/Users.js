@@ -19,7 +19,9 @@ const UsersSchema = new mongoose.Schema({
   },
   Nasc: {
     required: true,
-    type: Date
+    type: Date,
+    default: Date.now
+
   }
 });
 
